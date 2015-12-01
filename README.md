@@ -16,5 +16,22 @@ target 'YourApp' do
 end
 ```
 
-### Demo
-TODO
+### Demo Code
+```swift
+import PM25In
+
+PM25In.debugEnabled = true
+
+let request = AllCitiesAQIRequest()
+PM25In.sharedInstance.sendRequest(request) {
+  (response: Response?, error: NSError?) in
+  if let specificResponse = response as? AQIDetailedResponse {
+    for item in specificResponse.aqiArray! {
+      if item is AQIDetailed {
+        print("\(item.area) --- \(item.aqi)")
+      }
+    }
+  }
+}
+```
+
