@@ -14,12 +14,14 @@ public class Request {
     var uniqueURLString: String {
         get {
             assert(false, "The uniqueURLString property in Request class must be overridden")
+            return String()
         }
     }
     
     var parametersString: String {
         get {
             assert(false, "The parametersString property in Request class must be overridden")
+            return String()
         }
     }
     
@@ -37,6 +39,7 @@ public class Request {
     
     private func responseObject() -> Response {
         assert(false, "The responseObject() method in Request class must be overridden")
+        return Response()
     }
     
     func parse(data: NSData) throws -> Response {
